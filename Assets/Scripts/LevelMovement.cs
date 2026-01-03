@@ -1,12 +1,12 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 /// <summary>
-/// Класс <c>LevelMovement</c> изменяет игровое поле в зависимоти от стадии прохождения игры.
-/// Горизонтальные колонки перемещаются по горизонтали, вертикальные - по вертикали.
+/// РљР»Р°СЃСЃ <c>LevelMovement</c> РёР·РјРµРЅСЏРµС‚ РёРіСЂРѕРІРѕРµ РїРѕР»Рµ РІ Р·Р°РІРёСЃРёРјРѕС‚Рё РѕС‚ СЃС‚Р°РґРёРё РїСЂРѕС…РѕР¶РґРµРЅРёСЏ РёРіСЂС‹.
+/// Р“РѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Рµ РєРѕР»РѕРЅРєРё РїРµСЂРµРјРµС‰Р°СЋС‚СЃСЏ РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё, РІРµСЂС‚РёРєР°Р»СЊРЅС‹Рµ - РїРѕ РІРµСЂС‚РёРєР°Р»Рё.
 /// </summary>
 public class LevelMovement : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class LevelMovement : MonoBehaviour
     private List<GameObject> _lowerRow;
     
     /// <summary>
-    /// Метод <c>LeftRotation</c> перемещает левую половину вертикальной колонки тайлов.
+    /// РњРµС‚РѕРґ <c>LeftRotation</c> РїРµСЂРµРјРµС‰Р°РµС‚ Р»РµРІСѓСЋ РїРѕР»РѕРІРёРЅСѓ РІРµСЂС‚РёРєР°Р»СЊРЅРѕР№ РєРѕР»РѕРЅРєРё С‚Р°Р№Р»РѕРІ.
     /// </summary>
     public void LeftRotation()
     {
@@ -34,7 +34,7 @@ public class LevelMovement : MonoBehaviour
         StartCoroutine(LevelMoving(_leftRow, false));
     }
     /// <summary>
-    /// Метод <c>RightRotation</c> перемещает правую половину вертикальной колонки тайлов.
+    /// РњРµС‚РѕРґ <c>RightRotation</c> РїРµСЂРµРјРµС‰Р°РµС‚ РїСЂР°РІСѓСЋ РїРѕР»РѕРІРёРЅСѓ РІРµСЂС‚РёРєР°Р»СЊРЅРѕР№ РєРѕР»РѕРЅРєРё С‚Р°Р№Р»РѕРІ.
     /// </summary>
     public void RightRotation() 
     {
@@ -50,7 +50,7 @@ public class LevelMovement : MonoBehaviour
         StartCoroutine(LevelMoving(_rightRow, false));
     }
     /// <summary>
-    /// Метод <c>UpperRotation</c> перемещает верхнюю половину горизонтальной колонки тайлов.
+    /// РњРµС‚РѕРґ <c>UpperRotation</c> РїРµСЂРµРјРµС‰Р°РµС‚ РІРµСЂС…РЅСЋСЋ РїРѕР»РѕРІРёРЅСѓ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕР№ РєРѕР»РѕРЅРєРё С‚Р°Р№Р»РѕРІ.
     /// </summary>
     public void UpperRotation() 
     {
@@ -66,7 +66,7 @@ public class LevelMovement : MonoBehaviour
         StartCoroutine(LevelMoving(_upperRow, true));
     }
     /// <summary>
-    /// Метод <c>LowerRotation</c> перемещает нижнюю половину горизонтальной колонки тайлов.
+    /// РњРµС‚РѕРґ <c>LowerRotation</c> РїРµСЂРµРјРµС‰Р°РµС‚ РЅРёР¶РЅСЋСЋ РїРѕР»РѕРІРёРЅСѓ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕР№ РєРѕР»РѕРЅРєРё С‚Р°Р№Р»РѕРІ.
     /// </summary>
     public void LowerRotation() 
     {
@@ -82,17 +82,17 @@ public class LevelMovement : MonoBehaviour
         StartCoroutine(LevelMoving(_lowerRow, true));
     }
     /// <summary>
-    /// Функция <c>LevelMoving</c> осуществляет движение тайлов на экране.
+    /// Р¤СѓРЅРєС†РёСЏ <c>LevelMoving</c> РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РґРІРёР¶РµРЅРёРµ С‚Р°Р№Р»РѕРІ РЅР° СЌРєСЂР°РЅРµ.
     /// </summary>
-    /// <param name="inputRow">Входной массив тайлов для перемещения</param>
-    /// <param name="horizontalMovement">Индикатор горизонтального перемещения</param>
-    /// <example>Например для
+    /// <param name="inputRow">Р’С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ С‚Р°Р№Р»РѕРІ РґР»СЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ</param>
+    /// <param name="horizontalMovement">РРЅРґРёРєР°С‚РѕСЂ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕРіРѕ РїРµСЂРµРјРµС‰РµРЅРёСЏ</param>
+    /// <example>РќР°РїСЂРёРјРµСЂ РґР»СЏ
     /// <code>
     /// LevelMoving(_lowerRow, true)
     /// </code>
-    /// второй параметр true потому что движение тайлов происходит по горизонтали.
+    /// РІС‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ true РїРѕС‚РѕРјСѓ С‡С‚Рѕ РґРІРёР¶РµРЅРёРµ С‚Р°Р№Р»РѕРІ РїСЂРѕРёСЃС…РѕРґРёС‚ РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё.
     /// </example>
-    /// <returns>Нулевое значение</returns>
+    /// <returns>РќСѓР»РµРІРѕРµ Р·РЅР°С‡РµРЅРёРµ</returns>
     private IEnumerator LevelMoving(List<GameObject> inputRow, bool horizontalMovement)
     {
         _isMoving = true;
@@ -133,11 +133,11 @@ public class LevelMovement : MonoBehaviour
         _isMoving = false;
     }
     /// <summary>
-    /// Метод <c>SortX</c> Осуществляет реализует сортировку списка тайлов для сортировки.
-    /// Это нужно для правильного расчета направление движения тайлов.
+    /// РњРµС‚РѕРґ <c>SortX</c> РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СЂРµР°Р»РёР·СѓРµС‚ СЃРѕСЂС‚РёСЂРѕРІРєСѓ СЃРїРёСЃРєР° С‚Р°Р№Р»РѕРІ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё.
+    /// Р­С‚Рѕ РЅСѓР¶РЅРѕ РґР»СЏ РїСЂР°РІРёР»СЊРЅРѕРіРѕ СЂР°СЃС‡РµС‚Р° РЅР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ С‚Р°Р№Р»РѕРІ.
     /// </summary>
-    /// <param name="inputList">Входной список тайлов для сортировки</param>
-    /// <returns>Отсортированный по значению смещения по X список тайлов</returns>
+    /// <param name="inputList">Р’С…РѕРґРЅРѕР№ СЃРїРёСЃРѕРє С‚Р°Р№Р»РѕРІ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё</param>
+    /// <returns>РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РїРѕ Р·РЅР°С‡РµРЅРёСЋ СЃРјРµС‰РµРЅРёСЏ РїРѕ X СЃРїРёСЃРѕРє С‚Р°Р№Р»РѕРІ</returns>
     private List<GameObject> SortX(ref List<GameObject> inputList)
     {
         for (int i = 0; i < inputList.Count - 1; i++)
@@ -151,11 +151,11 @@ public class LevelMovement : MonoBehaviour
         return inputList;
     }
     /// <summary>
-    /// Метод <c>SortY</c> Осуществляет реализует сортировку списка тайлов для сортировки.
-    /// Это нужно для правильного расчета направление движения тайлов.
+    /// РњРµС‚РѕРґ <c>SortY</c> РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СЂРµР°Р»РёР·СѓРµС‚ СЃРѕСЂС‚РёСЂРѕРІРєСѓ СЃРїРёСЃРєР° С‚Р°Р№Р»РѕРІ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё.
+    /// Р­С‚Рѕ РЅСѓР¶РЅРѕ РґР»СЏ РїСЂР°РІРёР»СЊРЅРѕРіРѕ СЂР°СЃС‡РµС‚Р° РЅР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ С‚Р°Р№Р»РѕРІ.
     /// </summary>
-    /// <param name="inputList">Входной список тайлов для сортировки</param>
-    /// <returns>Отсортированный по значению смещения по Y список тайлов</returns>
+    /// <param name="inputList">Р’С…РѕРґРЅРѕР№ СЃРїРёСЃРѕРє С‚Р°Р№Р»РѕРІ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё</param>
+    /// <returns>РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РїРѕ Р·РЅР°С‡РµРЅРёСЋ СЃРјРµС‰РµРЅРёСЏ РїРѕ Y СЃРїРёСЃРѕРє С‚Р°Р№Р»РѕРІ</returns>
     private List<GameObject> SortY(ref List<GameObject> inputList)
     {
         for (int i = 0; i < inputList.Count - 1; i++)
