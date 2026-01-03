@@ -1,96 +1,171 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
+/// <summary>
+/// Класс <c>LevelMovement</c> изменяет игровое поле в зависимоти от стадии прохождения игры.
+/// Горизонтальные колонки перемещаются по горизонтали, вертикальные - по вертикали.
+/// </summary>
 public class LevelMovement : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _levelFragments;
+    [SerializeField] private float moveDuration = 0.5f;
+    private bool _isMoving = false;
     private List<GameObject> _leftRow;
     private List<GameObject> _rightRow;
     private List<GameObject> _upperRow;
     private List<GameObject> _lowerRow;
-
-    private void Start()
+    
+    /// <summary>
+    /// Метод <c>LeftRotation</c> перемещает левую половину вертикальной колонки тайлов.
+    /// </summary>
+    public void LeftRotation()
     {
-        _leftRow = new List<GameObject>();
+        for (int i = 0; i < _levelFragments.Count; i++)
+        {
+            if (_levelFragments[i].transform.position.x == -2f)
+            {
+                _leftRow.Add(_levelFragments[i]);
+            }
+        }
+        SortY(ref _leftRow);
+        StartCoroutine(LevelMoving(_leftRow, false));
+    }
+    /// <summary>
+    /// Метод <c>RightRotation</c> перемещает правую половину вертикальной колонки тайлов.
+    /// </summary>
+    public void RightRotation() 
+    {
         _rightRow = new List<GameObject>();
-        _lowerRow = new List<GameObject>();
+        for (int i = 0; i < _levelFragments.Count; i++)
+        {
+            if (_levelFragments[i].transform.position.x == -0.5f)
+            {
+                _rightRow.Add(_levelFragments[i]);
+            }
+        }
+        SortY(ref _rightRow);
+        StartCoroutine(LevelMoving(_rightRow, false));
+    }
+    /// <summary>
+    /// Метод <c>UpperRotation</c> перемещает верхнюю половину горизонтальной колонки тайлов.
+    /// </summary>
+    public void UpperRotation() 
+    {
         _upperRow = new List<GameObject>();
-
-        _leftRow.Add(_levelFragments[1]);
-        _leftRow.Add(_levelFragments[5]);
-        _leftRow.Add(_levelFragments[8]);
-        _leftRow.Add(_levelFragments[11]);
-
-        _rightRow.Add(_levelFragments[7]);
-        _rightRow.Add(_levelFragments[3]);
-        _rightRow.Add(_levelFragments[2]);
-        _rightRow.Add(_levelFragments[0]);
-
-        _upperRow.Add(_levelFragments[10]);
-        _upperRow.Add(_levelFragments[6]);
-        _upperRow.Add(_levelFragments[5]);
-        _upperRow.Add(_levelFragments[2]);
-
-        _lowerRow.Add(_levelFragments[9]);
-        _lowerRow.Add(_levelFragments[4]);
-        _lowerRow.Add(_levelFragments[1]);
-        _lowerRow.Add(_levelFragments[0]);
+        for (int i = 0; i < _levelFragments.Count; i++)
+        {
+            if (_levelFragments[i].transform.position.y == 0.5)
+            {
+                _upperRow.Add(_levelFragments[i]);
+            }
+        }
+        SortX(ref _upperRow);
+        StartCoroutine(LevelMoving(_upperRow, true));
     }
-
-    private void Update()
+    /// <summary>
+    /// Метод <c>LowerRotation</c> перемещает нижнюю половину горизонтальной колонки тайлов.
+    /// </summary>
+    public void LowerRotation() 
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        _lowerRow = new List<GameObject>();
+        for (int i = 0; i < _levelFragments.Count; i++)
         {
-            LeftMovement();
+            if (_levelFragments[i].transform.position.y == -1)
+            {
+                _lowerRow.Add(_levelFragments[i]);
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.X))
-        {
-            RightMovement();
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            UpperMovement();
-        }
-        else if (Input.GetKeyDown(KeyCode.S)) 
-        {
-             LowerMovement();
-        }
-
+        SortX(ref _lowerRow);
+        StartCoroutine(LevelMoving(_lowerRow, true));
     }
-
-    private void UpperMovement()
+    /// <summary>
+    /// Функция <c>LevelMoving</c> осуществляет движение тайлов на экране.
+    /// </summary>
+    /// <param name="inputRow">Входной массив тайлов для перемещения</param>
+    /// <param name="horizontalMovement">Индикатор горизонтального перемещения</param>
+    /// <example>Например для
+    /// <code>
+    /// LevelMoving(_lowerRow, true)
+    /// </code>
+    /// второй параметр true потому что движение тайлов происходит по горизонтали.
+    /// </example>
+    /// <returns>Нулевое значение</returns>
+    private IEnumerator LevelMoving(List<GameObject> inputRow, bool horizontalMovement)
     {
-        foreach (var row in _upperRow)
+        _isMoving = true;
+
+        Vector3[] startPositions = new Vector3[inputRow.Count];
+        for (int i = 0; i < inputRow.Count; i++)
         {
-            while (row.transform.position != new Vector3(row.transform.position.x + 1, row.transform.position.y, row.transform.position.z))
-                row.transform.position = Vector3.Lerp(row.transform.position, new Vector3(row.transform.position.x + 1, row.transform.position.y, row.transform.position.z), 3 * Time.deltaTime);
+            startPositions[i] = inputRow[i].transform.position;
         }
+        Vector3 delta = startPositions[0] - startPositions[1];
+        Vector3[] targetPositions = new Vector3[inputRow.Count];
+        for (int i = 0; i < inputRow.Count; i++)
+        {
+            if (horizontalMovement)
+                targetPositions[i] = startPositions[i] - delta;
+            else
+                targetPositions[i] = startPositions[i] + delta;
+        }
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < moveDuration)
+        {
+            for (int i = 0; i < inputRow.Count; i++)
+            {
+                inputRow[i].transform.position = Vector3.Lerp(startPositions[i], targetPositions[i], (elapsedTime / moveDuration));
+            }
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        for (int i = 0; i < inputRow.Count; i++)
+        {
+            inputRow[i].transform.position = targetPositions[i];
+        }
+
+        _isMoving = false;
     }
-
-    private void LowerMovement()
+    /// <summary>
+    /// Метод <c>SortX</c> Осуществляет реализует сортировку списка тайлов для сортировки.
+    /// Это нужно для правильного расчета направление движения тайлов.
+    /// </summary>
+    /// <param name="inputList">Входной список тайлов для сортировки</param>
+    /// <returns>Отсортированный по значению смещения по X список тайлов</returns>
+    private List<GameObject> SortX(ref List<GameObject> inputList)
     {
-        foreach (var row in _lowerRow)
-        {
-            while (row.transform.position != new Vector3(row.transform.position.x + 1, row.transform.position.y, row.transform.position.z))
-                row.transform.position = Vector3.Lerp(row.transform.position, new Vector3(row.transform.position.x + 1, row.transform.position.y, row.transform.position.z), 3 * Time.deltaTime);
-        }
+        for (int i = 0; i < inputList.Count - 1; i++)
+            for (int j = 0; j < inputList.Count - 1; j++)
+                if (inputList[i].transform.position.x < inputList[j].transform.position.x)
+                {
+                    GameObject tmp = inputList[i];
+                    inputList[i] = inputList[j];
+                    inputList[j] = tmp;
+                }
+        return inputList;
     }
-
-    private void LeftMovement()
+    /// <summary>
+    /// Метод <c>SortY</c> Осуществляет реализует сортировку списка тайлов для сортировки.
+    /// Это нужно для правильного расчета направление движения тайлов.
+    /// </summary>
+    /// <param name="inputList">Входной список тайлов для сортировки</param>
+    /// <returns>Отсортированный по значению смещения по Y список тайлов</returns>
+    private List<GameObject> SortY(ref List<GameObject> inputList)
     {
-        foreach (var row in _leftRow)
-        {
-            while (row.transform.position != new Vector3(row.transform.position.x, row.transform.position.y - 1, row.transform.position.z))
-                row.transform.position = Vector3.Lerp(row.transform.position, new Vector3(row.transform.position.x, row.transform.position.y - 1, row.transform.position.z), 3 * Time.deltaTime);
-        }
-    }
-
-    private void RightMovement()
-    {
-        foreach (var row in _rightRow)
-        {
-            while (row.transform.position != new Vector3(row.transform.position.x, row.transform.position.y - 1, row.transform.position.z))
-                row.transform.position = Vector3.Lerp(row.transform.position, new Vector3(row.transform.position.x, row.transform.position.y - 1, row.transform.position.z), 3 * Time.deltaTime);
-        }
+        for (int i = 0; i < inputList.Count - 1; i++)
+            for (int j = 0; j < inputList.Count - 1; j++)
+                if (inputList[i].transform.position.y < inputList[j].transform.position.y)
+                {
+                    GameObject tmp = inputList[i];
+                    inputList[i] = inputList[j];
+                    inputList[j] = tmp;
+                }
+        return inputList;
     }
 }
