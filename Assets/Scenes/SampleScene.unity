@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 65bedbd310c3a2041b2f0b37361480c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7768267
+      value: -1.0085647
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 65bedbd310c3a2041b2f0b37361480c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.683
+      value: -5.1432896
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 65bedbd310c3a2041b2f0b37361480c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -423,11 +423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 4e64d58fff2117945a993d71434b80b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.42
+      value: -3.2053914
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 4e64d58fff2117945a993d71434b80b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.204
+      value: -5.6642895
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 4e64d58fff2117945a993d71434b80b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -498,7 +498,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 4
+  jumpForce: 10
   IsFlipped: 0
   groundCheck: {fileID: 1085707335}
   groundCheckRadius: 0.1
@@ -964,7 +964,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1492,11 +1492,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5b57b93029bb56849a946d829ecbd5ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.607
+      value: -4.392391
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5b57b93029bb56849a946d829ecbd5ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.191
+      value: -5.65129
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5b57b93029bb56849a946d829ecbd5ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1652,11 +1652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 77c06883f29eab54da6f73091df5204c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.068
+      value: -1.7173914
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 77c06883f29eab54da6f73091df5204c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.089
+      value: -3.3712897
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 77c06883f29eab54da6f73091df5204c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1995,7 +1995,7 @@ Transform:
   m_GameObject: {fileID: 1459196412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.715391, y: -1.1697104, z: -0.066400565}
+  m_LocalPosition: {x: 4.93, y: -4.63, z: -0.066400565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2104,7 +2104,6 @@ GameObject:
   - component: {fileID: 1576690620}
   - component: {fileID: 1576690622}
   - component: {fileID: 1576690621}
-  - component: {fileID: 1576690623}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -2228,20 +2227,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1576690623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576690619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 451c328615bf4cd4284f1735adf5b5ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelMovement: {fileID: 1063644422}
-  _levelID: 1
 --- !u!1 &1777545881
 GameObject:
   m_ObjectHideFlags: 0
