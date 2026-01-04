@@ -6,6 +6,8 @@ public class Tile_SimpleToggle : MonoBehaviour
     private LevelMovement _leveloMvement;
     private bool _playerOnTrigger = false;
 
+    private bool forceMovement = false;
+
     private void Start()
     {
         _leveloMvement = FindObjectOfType<LevelMovement>();
@@ -21,9 +23,15 @@ public class Tile_SimpleToggle : MonoBehaviour
             _playerOnTrigger = false;
     }
 
+    public void ForceMoveTo(int levelID)
+    {
+        _levelID = levelID;
+        forceMovement = true;
+    }
+
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _playerOnTrigger) 
+        if (forceMovement || Input.GetKeyDown(KeyCode.E) && _playerOnTrigger) 
         {
             Destroy(gameObject);
             switch (_levelID) 
@@ -41,6 +49,7 @@ public class Tile_SimpleToggle : MonoBehaviour
                         break;
                     }
             }
+            forceMovement = false;
         }
     }
 }
