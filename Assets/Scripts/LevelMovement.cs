@@ -17,69 +17,82 @@ public class LevelMovement : MonoBehaviour
     private List<GameObject> _rightRow;
     private List<GameObject> _upperRow;
     private List<GameObject> _lowerRow;
-    
+
     /// <summary>
     /// Метод <c>LeftRotation</c> перемещает левую половину вертикальной колонки тайлов.
     /// </summary>
     public void LeftRotation()
     {
-        for (int i = 0; i < _levelFragments.Count; i++)
+        if (!_isMoving)
         {
-            if (_levelFragments[i].transform.position.x == -2f)
+            _leftRow = new List<GameObject>();
+            for (int i = 0; i < _levelFragments.Count; i++)
             {
-                _leftRow.Add(_levelFragments[i]);
+                if (_levelFragments[i].transform.localPosition.x == 15f)
+                {
+                    _leftRow.Add(_levelFragments[i]);
+                }
             }
+            SortY(ref _leftRow);
+            StartCoroutine(LevelMoving(_leftRow, false));
         }
-        SortY(ref _leftRow);
-        StartCoroutine(LevelMoving(_leftRow, false));
     }
     /// <summary>
     /// Метод <c>RightRotation</c> перемещает правую половину вертикальной колонки тайлов.
     /// </summary>
-    public void RightRotation() 
+    public void RightRotation()
     {
-        _rightRow = new List<GameObject>();
-        for (int i = 0; i < _levelFragments.Count; i++)
+        if (!_isMoving)
         {
-            if (_levelFragments[i].transform.position.x == -0.5f)
+            _rightRow = new List<GameObject>();
+            for (int i = 0; i < _levelFragments.Count; i++)
             {
-                _rightRow.Add(_levelFragments[i]);
+                if (_levelFragments[i].transform.localPosition.x == 21.75f)
+                {
+                    _rightRow.Add(_levelFragments[i]);
+                }
             }
+            SortY(ref _rightRow);
+            StartCoroutine(LevelMoving(_rightRow, false));
         }
-        SortY(ref _rightRow);
-        StartCoroutine(LevelMoving(_rightRow, false));
     }
     /// <summary>
     /// Метод <c>UpperRotation</c> перемещает верхнюю половину горизонтальной колонки тайлов.
     /// </summary>
-    public void UpperRotation() 
+    public void UpperRotation()
     {
-        _upperRow = new List<GameObject>();
-        for (int i = 0; i < _levelFragments.Count; i++)
+        if (!_isMoving)
         {
-            if (_levelFragments[i].transform.position.y == 0.5)
+            _upperRow = new List<GameObject>();
+            for (int i = 0; i < _levelFragments.Count; i++)
             {
-                _upperRow.Add(_levelFragments[i]);
+                if (_levelFragments[i].transform.localPosition.y == 3.21f)
+                {
+                    _upperRow.Add(_levelFragments[i]);
+                }
             }
+            SortX(ref _upperRow);
+            StartCoroutine(LevelMoving(_upperRow, true));
         }
-        SortX(ref _upperRow);
-        StartCoroutine(LevelMoving(_upperRow, true));
     }
     /// <summary>
     /// Метод <c>LowerRotation</c> перемещает нижнюю половину горизонтальной колонки тайлов.
     /// </summary>
-    public void LowerRotation() 
+    public void LowerRotation()
     {
-        _lowerRow = new List<GameObject>();
-        for (int i = 0; i < _levelFragments.Count; i++)
+        if (!_isMoving)
         {
-            if (_levelFragments[i].transform.position.y == -1)
+            _lowerRow = new List<GameObject>();
+            for (int i = 0; i < _levelFragments.Count; i++)
             {
-                _lowerRow.Add(_levelFragments[i]);
+                if (_levelFragments[i].transform.localPosition.y == -3.5f)
+                {
+                    _lowerRow.Add(_levelFragments[i]);
+                }
             }
+            SortX(ref _lowerRow);
+            StartCoroutine(LevelMoving(_lowerRow, true));
         }
-        SortX(ref _lowerRow);
-        StartCoroutine(LevelMoving(_lowerRow, true));
     }
     /// <summary>
     /// Функция <c>LevelMoving</c> осуществляет движение тайлов на экране.
@@ -142,7 +155,7 @@ public class LevelMovement : MonoBehaviour
     {
         for (int i = 0; i < inputList.Count - 1; i++)
             for (int j = 0; j < inputList.Count - 1; j++)
-                if (inputList[i].transform.position.x < inputList[j].transform.position.x)
+                if (inputList[i].transform.localPosition.x < inputList[j].transform.localPosition.x)
                 {
                     GameObject tmp = inputList[i];
                     inputList[i] = inputList[j];
@@ -160,7 +173,7 @@ public class LevelMovement : MonoBehaviour
     {
         for (int i = 0; i < inputList.Count - 1; i++)
             for (int j = 0; j < inputList.Count - 1; j++)
-                if (inputList[i].transform.position.y < inputList[j].transform.position.y)
+                if (inputList[i].transform.localPosition.y < inputList[j].transform.localPosition.y)
                 {
                     GameObject tmp = inputList[i];
                     inputList[i] = inputList[j];

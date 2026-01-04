@@ -33,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         CheckGround();
+        if (Input.GetKeyDown(KeyCode.E) && rb.simulated) 
+        {
+            Interract();
+        }
     }
 
     void HandleMovement()
@@ -76,5 +80,16 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
+    }
+
+    private void Interract() 
+    {
+        _animator.SetTrigger("Interract");
+        rb.simulated = false;
+        Invoke("PhisEnabler", 0.5f);
+    }
+    private void PhisEnabler() 
+    {
+        rb.simulated = true;
     }
 }
