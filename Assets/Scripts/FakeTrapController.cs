@@ -12,7 +12,7 @@ public class FakeTrapController : MonoBehaviour
         {
             playerMovement = other.GetComponent<PlayerMovement>();
             playerMovement.Disable();
-            PopUp.active = true;
+            PopUp.SetActive(true);
             _active = false;
         }
     }
