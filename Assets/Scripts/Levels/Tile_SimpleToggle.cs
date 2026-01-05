@@ -41,10 +41,18 @@ public class Tile_SimpleToggle : MonoBehaviour
                         _leveloMvement.RightRotation();
                         break;
                     }
+                case 2: 
+                    {
+                        _leveloMvement.LeftRotation();
+                        break;
+                    }
+                case 3: 
+                    {
+                        _leveloMvement.UpperRotation();
+                        break;
+                    }
                 case 4: 
                     {
-                        var player = FindAnyObjectByType<PlayerMovement>();
-                        player.gameObject.GetComponent<Rigidbody2D>().gravityScale *= -1;
                         _leveloMvement.LowerRotation();
                         break;
                     }

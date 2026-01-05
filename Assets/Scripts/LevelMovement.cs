@@ -28,7 +28,7 @@ public class LevelMovement : MonoBehaviour
             _leftRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
-                if (_levelFragments[i].transform.localPosition.x == 15f)
+                if (_levelFragments[i].transform.localPosition.x == 8.59f)
                 {
                     _leftRow.Add(_levelFragments[i]);
                 }
@@ -47,7 +47,7 @@ public class LevelMovement : MonoBehaviour
             _rightRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
-                if (_levelFragments[i].transform.localPosition.x == 21.75f)
+                if (_levelFragments[i].transform.localPosition.x == 15.18f)
                 {
                     _rightRow.Add(_levelFragments[i]);
                 }
@@ -66,7 +66,7 @@ public class LevelMovement : MonoBehaviour
             _upperRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
-                if (_levelFragments[i].transform.localPosition.y == 3.21f)
+                if (_levelFragments[i].transform.localPosition.y == 4.61f)
                 {
                     _upperRow.Add(_levelFragments[i]);
                 }
@@ -85,7 +85,7 @@ public class LevelMovement : MonoBehaviour
             _lowerRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
-                if (_levelFragments[i].transform.localPosition.y == -3.5f)
+                if (_levelFragments[i].transform.localPosition.y == -2.33f)
                 {
                     _lowerRow.Add(_levelFragments[i]);
                 }

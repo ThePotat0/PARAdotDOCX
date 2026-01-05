@@ -28,15 +28,15 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
         HandleJump();
+        if (Input.GetKeyDown(KeyCode.E) && rb.simulated)
+        {
+            Interract();
+        }
     }
 
     void FixedUpdate()
     {
         CheckGround();
-        if (Input.GetKeyDown(KeyCode.E) && rb.simulated) 
-        {
-            Interract();
-        }
     }
 
     void HandleMovement()
