@@ -12,7 +12,7 @@ public class MainMenuButton : MonoBehaviour
         }
         else 
         {
-            SceneManager.LoadScene("MainMenu");
+            FindObjectOfType<SceneFader>().FadeToScene("MainMenu");
         }
     }
 }

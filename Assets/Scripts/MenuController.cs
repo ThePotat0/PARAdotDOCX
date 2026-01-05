@@ -7,8 +7,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button _creditsButton;
     [SerializeField] private bool _creditsButtonDebugMode = false;
     
-    public void OnPlayClicked() => SceneManager.LoadScene("SampleScene");
-    public void OnCreditsClicked() => SceneManager.LoadScene("CreditsScene");
+    public void OnPlayClicked() => FindObjectOfType<SceneFader>().FadeToScene("SampleScene");
+    public void OnCreditsClicked() => FindObjectOfType<SceneFader>().FadeToScene("CreditsScene");
 
     private void Start()
     {
