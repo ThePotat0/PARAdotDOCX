@@ -4,5 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButton : MonoBehaviour
 {
-    public void OnMainMenuClicked() => SceneManager.LoadScene("MainMenu");
+    public void OnMainMenuClicked() 
+    {
+        if (this.enabled == false)
+        {
+            enabled = true;
+        }
+        else 
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
 }

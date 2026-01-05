@@ -30,7 +30,8 @@ public class LevelTrigger : MonoBehaviour
         if (_triggerComponent == null)
         {
             Debug.Log($"SET Trigger Component and Level ID for {gameObject.name} object!!!");
-        } else
+        }
+        else
         {
             _trigger = _triggerComponent.GetComponent<Tile_SimpleToggle>();
         }
@@ -47,6 +48,8 @@ public class LevelTrigger : MonoBehaviour
         {
             _trigger.ForceMoveTo(_levelID);
             _trigger = null;
+            if (GetComponent<MainMenuButton>() != null)
+                GetComponent<MainMenuButton>().enabled = false;
             return true; // this helps check is it moved successfully
         }
         return false;
@@ -59,10 +62,11 @@ public class LevelTrigger : MonoBehaviour
         // if (a.Intersects(b)) { /* пересекаются */ }
         Bounds a = _triggerComponent.GetComponent<Renderer>().bounds;
         Bounds b = _window.GetComponent<Renderer>().bounds;
-        if (a.Intersects(b)) 
-        { 
+        if (a.Intersects(b))
+        {
             return true;
-        } else
+        }
+        else
         {
             return false;
         }
