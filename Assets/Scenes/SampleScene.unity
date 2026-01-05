@@ -461,6 +461,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 15
   IsFlipped: 0
+  active: 1
   groundCheck: {fileID: 1085707335}
   groundCheckRadius: 0.1
   groundLayer:
@@ -548,6 +549,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7590487296356215179, guid: 1a48a5f690bd0534aac759866934910f, type: 3}
   m_PrefabInstance: {fileID: 474141262}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &283758805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283758802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9673be1a67361dd4cbc05dae12f651d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelID: 0
 --- !u!1001 &311311734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,7 +743,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7590487296356215179, guid: 1a48a5f690bd0534aac759866934910f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 283758805}
   m_SourcePrefab: {fileID: 100100000, guid: 1a48a5f690bd0534aac759866934910f, type: 3}
 --- !u!1 &474141263 stripped
 GameObject:

@@ -153,14 +153,8 @@ public class LevelMovement : MonoBehaviour
     /// <returns>Отсортированный по значению смещения по X список тайлов</returns>
     private List<GameObject> SortX(ref List<GameObject> inputList)
     {
-        for (int i = 0; i < inputList.Count - 1; i++)
-            for (int j = 0; j < inputList.Count - 1; j++)
-                if (inputList[i].transform.localPosition.x < inputList[j].transform.localPosition.x)
-                {
-                    GameObject tmp = inputList[i];
-                    inputList[i] = inputList[j];
-                    inputList[j] = tmp;
-                }
+        inputList.Sort((a, b) =>
+            a.transform.localPosition.x.CompareTo(b.transform.localPosition.x));
         return inputList;
     }
     /// <summary>
@@ -171,14 +165,8 @@ public class LevelMovement : MonoBehaviour
     /// <returns>Отсортированный по значению смещения по Y список тайлов</returns>
     private List<GameObject> SortY(ref List<GameObject> inputList)
     {
-        for (int i = 0; i < inputList.Count - 1; i++)
-            for (int j = 0; j < inputList.Count - 1; j++)
-                if (inputList[i].transform.localPosition.y < inputList[j].transform.localPosition.y)
-                {
-                    GameObject tmp = inputList[i];
-                    inputList[i] = inputList[j];
-                    inputList[j] = tmp;
-                }
+        inputList.Sort((a, b) =>
+            a.transform.localPosition.y.CompareTo(b.transform.localPosition.y));
         return inputList;
     }
 }

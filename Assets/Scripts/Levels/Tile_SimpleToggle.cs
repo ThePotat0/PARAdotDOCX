@@ -29,7 +29,7 @@ public class Tile_SimpleToggle : MonoBehaviour
         forceMovement = true;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (forceMovement || Input.GetKeyDown(KeyCode.E) && _playerOnTrigger) 
         {
