@@ -3,5 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class btnCreditsController : MonoBehaviour
 {
-    public void OnCreditsClicked() => FindObjectOfType<SceneFader>().FadeToScene("CreditsScene");
+    public void OnCreditsClicked() 
+    {
+        PlayerPrefs.SetInt("CreditsVisible", 1);
+        FindObjectOfType<SceneFader>().FadeToScene("CreditsScene");
+    }
 }
