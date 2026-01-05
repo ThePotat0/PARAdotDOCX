@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2115717780635747233}
   - component: {fileID: 4781814535026568264}
   - component: {fileID: 4189774710028142108}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430 2 (4)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 4535109081730082369}
   - component: {fileID: 7056878168554080680}
   - component: {fileID: 7439806742835725246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430 2 (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 5505024291558170549}
   - component: {fileID: 1397565648614453340}
   - component: {fileID: 3755433647256936330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u0441\u0442\u0435\u043D\u0430 2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 4740111206766336183}
   - component: {fileID: 2218201933308278622}
   - component: {fileID: 9037586504976670887}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u0441\u0442\u0435\u043D\u0430 2 (2)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 4886032095619048313}
   - component: {fileID: 2075680784668986512}
   - component: {fileID: 4701937363668468143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430 2 (3)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1044,7 @@ GameObject:
   - component: {fileID: 7081006098658232111}
   - component: {fileID: 4414699057275824326}
   - component: {fileID: 2355885806506892542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u0441\u0442\u0435\u043D\u0430 2 (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 8152194356677879490}
   - component: {fileID: 3324370605732645163}
   - component: {fileID: 3459110976636059244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430 2 (2)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

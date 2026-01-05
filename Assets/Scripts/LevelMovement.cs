@@ -21,6 +21,7 @@ public class LevelMovement : MonoBehaviour
     /// <summary>
     /// Метод <c>LeftRotation</c> перемещает левую половину вертикальной колонки тайлов.
     /// </summary>
+
     public void LeftRotation()
     {
         if (!_isMoving)
@@ -28,7 +29,7 @@ public class LevelMovement : MonoBehaviour
             _leftRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
-                if (_levelFragments[i].transform.localPosition.x == 8.59f)
+                if (_levelFragments[i].transform.localPosition.x == 8.5)
                 {
                     _leftRow.Add(_levelFragments[i]);
                 }
@@ -47,7 +48,7 @@ public class LevelMovement : MonoBehaviour
             _rightRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
-                if (_levelFragments[i].transform.localPosition.x == 15.18f)
+                if (_levelFragments[i].transform.localPosition.x == 15)
                 {
                     _rightRow.Add(_levelFragments[i]);
                 }
@@ -66,7 +67,7 @@ public class LevelMovement : MonoBehaviour
             _upperRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
-                if (_levelFragments[i].transform.localPosition.y == 4.61f)
+                if (_levelFragments[i].transform.localPosition.y == 4.5)
                 {
                     _upperRow.Add(_levelFragments[i]);
                 }
@@ -85,7 +86,7 @@ public class LevelMovement : MonoBehaviour
             _lowerRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
-                if (_levelFragments[i].transform.localPosition.y == -2.33f)
+                if (_levelFragments[i].transform.localPosition.y == -2)
                 {
                     _lowerRow.Add(_levelFragments[i]);
                 }
