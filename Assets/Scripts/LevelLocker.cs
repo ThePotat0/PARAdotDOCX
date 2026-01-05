@@ -10,5 +10,6 @@ public class LevelLocker : MonoBehaviour
         {
             _wallFragment.transform.localScale = new Vector3(_wallFragment.transform.localScale.x + 3, _wallFragment.transform.localScale.y, _wallFragment.transform.localScale.z);
         }
+        Destroy(gameObject);
     }
 }

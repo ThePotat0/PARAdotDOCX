@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1202866352977750980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.381, y: 0.159, z: 0}
+  m_LocalPosition: {x: 0.55, y: 0.16, z: 0}
   m_LocalScale: {x: 0.6451455, y: 1.1453098, z: 0.44896826}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -566,7 +566,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9673be1a67361dd4cbc05dae12f651d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelID: 0
+  _levelID: 1
 --- !u!1 &5486994618855747794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6951670592727153320}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.1647415, y: 2.0204325, z: 2.227329}
   m_ConstrainProportionsScale: 0
@@ -1032,7 +1032,7 @@ Transform:
   - {fileID: 2115717780635747233}
   - {fileID: 5911007803355857718}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &8046018319744085834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,8 +1060,8 @@ Transform:
   m_GameObject: {fileID: 8046018319744085834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.329, y: -1.641, z: 0}
-  m_LocalScale: {x: 1.0880721, y: 1, z: 0.44896826}
+  m_LocalPosition: {x: -0.429, y: -1.641, z: 0}
+  m_LocalScale: {x: 0.9880809, y: 1, z: 0.44896826}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7126322808587741072}
