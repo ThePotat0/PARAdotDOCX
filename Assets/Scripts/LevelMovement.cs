@@ -12,11 +12,18 @@ public class LevelMovement : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _levelFragments;
     [SerializeField] private float moveDuration = 0.5f;
+    [SerializeField] private AudioClip _clip;
     private bool _isMoving = false;
+    private AudioSource _audioSource;
     private List<GameObject> _leftRow;
     private List<GameObject> _rightRow;
     private List<GameObject> _upperRow;
     private List<GameObject> _lowerRow;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     /// <summary>
     /// Метод <c>LeftRotation</c> перемещает левую половину вертикальной колонки тайлов.
@@ -26,6 +33,7 @@ public class LevelMovement : MonoBehaviour
     {
         if (!_isMoving)
         {
+            _audioSource.PlayOneShot(_clip);
             _leftRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
@@ -45,6 +53,7 @@ public class LevelMovement : MonoBehaviour
     {
         if (!_isMoving)
         {
+            _audioSource.PlayOneShot(_clip);
             _rightRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
@@ -64,6 +73,7 @@ public class LevelMovement : MonoBehaviour
     {
         if (!_isMoving)
         {
+            _audioSource.PlayOneShot(_clip);
             _upperRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
@@ -83,6 +93,7 @@ public class LevelMovement : MonoBehaviour
     {
         if (!_isMoving)
         {
+            _audioSource.PlayOneShot(_clip);
             _lowerRow = new List<GameObject>();
             for (int i = 0; i < _levelFragments.Count; i++)
             {
