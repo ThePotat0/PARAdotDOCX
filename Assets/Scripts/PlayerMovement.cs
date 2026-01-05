@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 8f;
     public float jumpForce = 14f;
     public bool IsFlipped = false;
+    [SerializeField] private bool active = true; // Serialize Field for debug purpose. Can be removed safely
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!active)
+            return;
         HandleMovement();
         HandleJump();
         if (Input.GetKeyDown(KeyCode.E) && rb.simulated)
@@ -36,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!active)
+            return;
         CheckGround();
     }
 
@@ -80,6 +85,18 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
+    }
+
+    public void Disable()
+    {
+        _spriteRenderer.enabled = false;
+        active = false;
+    }
+
+    public void Enable()
+    {
+        _spriteRenderer.enabled = true;
+        active = true;
     }
 
     private void Interract() 
