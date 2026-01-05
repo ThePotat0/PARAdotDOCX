@@ -461,7 +461,6 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 15
   IsFlipped: 0
-  active: 1
   groundCheck: {fileID: 1085707335}
   groundCheckRadius: 0.1
   groundLayer:
@@ -2597,7 +2596,7 @@ PrefabInstance:
       objectReference: {fileID: 191321059}
     - target: {fileID: 4496754818856956563, guid: 3ca15d99279a2434d82f0d00009383c3, type: 3}
       propertyPath: _levelID
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4496754818856956563, guid: 3ca15d99279a2434d82f0d00009383c3, type: 3}
       propertyPath: _triggerComponent
