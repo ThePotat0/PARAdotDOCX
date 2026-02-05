@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: main Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: main
+  m_TableCollectionNameGuidString: 9555e96ea50b34bc2845dd7df28d1306
+  m_Entries:
+  - m_Id: 86842007552
+    m_Key: playButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 435657105408
+    m_Key: creditsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 534365855744
+    m_Key: tryAgainText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 702834270208
+    m_Key: yesButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 782526046208
+    m_Key: noButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051586453504
+    m_Key: creditsThanks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3375222480896
+    m_Key: devs
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5414426395890942193
+  references:
+    version: 2
+    RefIds:
+    - rid: 5414426395890942193
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1770322090788
